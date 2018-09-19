@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "generate": "ng generate",
+    "postgenerate": "run-s lint",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test --code-coverage --watch=false",
