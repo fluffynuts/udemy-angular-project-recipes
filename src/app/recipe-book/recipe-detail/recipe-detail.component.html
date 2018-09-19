@@ -1,0 +1,10 @@
+<div *ngIf="recipe; else selectRecipe">
+  <div style="border: 1px solid red">
+    Recipe details:
+    {{ recipe.name }}
+    <hr />
+    {{ recipe.description }}
+  </div>
+</div>
+
+<ng-template #selectRecipe>Select a recipe please</ng-template>

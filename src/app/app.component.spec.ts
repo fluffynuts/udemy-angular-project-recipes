@@ -1,10 +1,14 @@
 import { TestBed, async } from "@angular/core/testing";
 import { AppComponent } from "./app.component";
 import "jasmine-expect";
+import { ShoppingListModule } from "./shopping-list/shopping-list.module";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        ShoppingListModule
+      ],
       declarations: [
         AppComponent
       ],
