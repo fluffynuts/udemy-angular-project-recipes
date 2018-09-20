@@ -8,5 +8,9 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+platformBrowserDynamic().bootstrapModule(
+  AppModule,
+  // this option has been made false by default in angular 6
+  // and results in no spacing between, for example, bootstrap buttons
+  { preserveWhitespaces: true }
+  ).catch(err => console.log(err));

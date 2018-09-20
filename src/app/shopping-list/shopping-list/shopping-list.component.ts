@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { IngredientRepositoryService } from "../../shared/ingredient-repository.service";
+import { Observable } from "rxjs";
+import { Ingredient } from "src/app/shared/models/ingredient";
 
 @Component({
   selector: "app-shopping-list",
@@ -6,10 +9,18 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./shopping-list.component.scss"]
 })
 export class ShoppingListComponent implements OnInit {
+  ingredients$: Observable<Ingredient[]>;
 
-  constructor() { }
+  constructor(
+    private _ingredientRepository: IngredientRepositoryService
+  ) { }
 
   ngOnInit() {
+    this.refreshData();
+  }
+
+  refreshData(): any {
+    this.ingredients$ = this._ingredientRepository.fetchAll();
   }
 
 }
