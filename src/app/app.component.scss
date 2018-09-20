@@ -1,0 +1,7 @@
+// TODO: this could be a smaller import, surely
+@import "~bootstrap/scss/bootstrap";
+
+.app-body {
+  @extend .container;
+  margin-top: 5px;
+}

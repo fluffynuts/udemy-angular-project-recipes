@@ -4,11 +4,16 @@ import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 import { RecipeItemComponent } from "./recipe-item/recipe-item.component";
 import { HttpClientModule } from "@angular/common/http";
 import { imports as faked } from "../conditional-in-memory-api";
-import { RecipesComponent } from "../recipes/recipes/recipes.component";
+import { RecipesComponent } from "./recipes/recipes.component";
 import { RecipeDetailComponent } from "./recipe-detail/recipe-detail.component";
+import { BsDropdownModule } from "ngx-bootstrap";
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule].concat(faked),
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    BsDropdownModule.forRoot()
+  ].concat(faked),
   declarations: [
     RecipeListComponent,
     RecipeItemComponent,
