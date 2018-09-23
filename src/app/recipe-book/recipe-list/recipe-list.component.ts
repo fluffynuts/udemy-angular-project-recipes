@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { Recipe } from "../models/recipe";
 import { Observable } from "rxjs";
 import { RecipeRepositoryService } from "src/app/shared/recipe-repository.service";
@@ -9,8 +9,9 @@ import { RecipeRepositoryService } from "src/app/shared/recipe-repository.servic
   styleUrls: ["./recipe-list.component.scss"]
 })
 export class RecipeListComponent implements OnInit {
-  public selectedRecipe: Recipe;
   public recipes$: Observable<Recipe[]>;
+  public recipes: Recipe[];
+  @Output() public recipeItemSelected = new EventEmitter<Recipe>();
 
   constructor(private _recipeRepository: RecipeRepositoryService) {
   }
@@ -21,6 +22,14 @@ export class RecipeListComponent implements OnInit {
 
   public refreshRecipes() {
     this.recipes$ = this._recipeRepository.fetchAll();
+    this.recipes$.subscribe(r => {
+      this.recipes = r;
+      console.log(`have ${this.recipes.length} recipes`);
+    });
+  }
+
+  public onRecipeSelected(recipe: Recipe) {
+    this.recipeItemSelected.emit(recipe);
   }
 
 }

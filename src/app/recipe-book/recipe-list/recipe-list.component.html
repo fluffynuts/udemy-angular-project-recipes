@@ -3,14 +3,12 @@
     <button class="btn btn-success">New Recipe</button>
   </div>
 </div>
-<hr/>
+<hr />
 <div class="row">
-  <div class="col-12">
-    <a href="#"
-       class="list-group-item clearfix"
-       *ngFor="let recipe of recipes$ | async"
-       (click)="selectedRecipe = recipe">
-      <app-recipe-item [recipe]="recipe"></app-recipe-item>
-    </a>
+  <div class="col-12" >
+    <app-recipe-item
+    *ngFor="let recipe of recipes"
+    (recipeSelected)="onRecipeSelected(recipe)"
+    [recipe]="recipe"></app-recipe-item>
   </div>
 </div>
