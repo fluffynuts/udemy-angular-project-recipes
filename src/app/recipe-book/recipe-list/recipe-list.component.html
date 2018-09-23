@@ -8,17 +8,9 @@
   <div class="col-12">
     <a href="#"
        class="list-group-item clearfix"
-       *ngFor="let recipe of recipes$ | async">
-      <div class="float-left">
-        <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
-        <p class="list-group-item-text">{{ recipe.description}}</p>
-      </div>
-      <div class="float-lg-right text-center">
-        <img [src]="recipe.imagePath"
-             alt="{{ recipe.name }}"
-             class="img-responsive recipe-preview" />
-      </div>
+       *ngFor="let recipe of recipes$ | async"
+       (click)="selectedRecipe = recipe">
+      <app-recipe-item [recipe]="recipe"></app-recipe-item>
     </a>
   </div>
-  <app-recipe-item></app-recipe-item>
 </div>

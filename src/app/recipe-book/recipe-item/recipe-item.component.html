@@ -1,13 +1,9 @@
-<div class="card" *ngIf="recipe">
-  <div class="card-header">{{recipe.name}}</div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-5">
-        {{recipe.description}}
-      </div>
-      <div class="col-7">
-        <img style="max-width: 100%" [src]="recipe.imagePath" />
-      </div>
-    </div>
-  </div>
+<div class="float-md-left">
+  <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+  <p class="list-group-item-text">{{ recipe.description}}</p>
+</div>
+<div class="float-md-right text-center">
+  <img [src]="recipe.imagePath"
+       alt="{{ recipe.name }}"
+       class="img-responsive recipe-preview" />
 </div>

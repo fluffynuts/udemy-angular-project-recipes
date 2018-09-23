@@ -10,6 +10,7 @@ import { Ingredient } from "src/app/shared/models/ingredient";
 })
 export class ShoppingListComponent implements OnInit {
   ingredients$: Observable<Ingredient[]>;
+  ingredients: Ingredient[];
 
   constructor(
     private _ingredientRepository: IngredientRepositoryService
@@ -19,8 +20,9 @@ export class ShoppingListComponent implements OnInit {
     this.refreshData();
   }
 
-  refreshData(): any {
+  async refreshData(): Promise<void> {
     this.ingredients$ = this._ingredientRepository.fetchAll();
+    this.ingredients = await this._ingredientRepository.fetchAll().toPromise();
   }
 
 }

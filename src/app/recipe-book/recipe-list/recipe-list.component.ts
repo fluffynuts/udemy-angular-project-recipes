@@ -9,7 +9,9 @@ import { RecipeRepositoryService } from "src/app/shared/recipe-repository.servic
   styleUrls: ["./recipe-list.component.scss"]
 })
 export class RecipeListComponent implements OnInit {
+  public selectedRecipe: Recipe;
   public recipes$: Observable<Recipe[]>;
+
   constructor(private _recipeRepository: RecipeRepositoryService) {
   }
 
