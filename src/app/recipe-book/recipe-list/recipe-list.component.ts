@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { Recipe } from "../models/recipe";
 import { Observable } from "rxjs";
-import { RecipeRepositoryService } from "src/app/shared/recipe-repository.service";
+import { RecipeService } from "../../shared/recipe.service";
 
 @Component({
   selector: "app-recipe-list",
@@ -13,7 +13,7 @@ export class RecipeListComponent implements OnInit {
   public recipes: Recipe[];
   @Output() public recipeItemSelected = new EventEmitter<Recipe>();
 
-  constructor(private _recipeRepository: RecipeRepositoryService) {
+  constructor(private _recipeRepository: RecipeService) {
   }
 
   ngOnInit() {

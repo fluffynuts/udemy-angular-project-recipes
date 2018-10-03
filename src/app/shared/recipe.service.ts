@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 import { EndpointsService } from "./endpoints.service";
 import { Recipe } from "../recipe-book/models/recipe";
 import { HttpClient } from "@angular/common/http";
@@ -8,7 +8,9 @@ import { IRepository } from "./repository";
 @Injectable({
   providedIn: "root"
 })
-export class RecipeRepositoryService implements IRepository<Recipe> {
+export class RecipeService implements IRepository<Recipe> {
+
+  public recipeSelected = new EventEmitter<Recipe>();
 
   constructor(private _httpClient: HttpClient,
               private _endpoints: EndpointsService) { }

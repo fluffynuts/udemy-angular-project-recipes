@@ -4,18 +4,34 @@
       <div class="row">
         <div class="col-5 form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" class="form-control">
+          <input type="text"
+                 id="name"
+                 [(ngModel)]="selectedIngredient.name"
+                 name="name"
+                 class="form-control">
         </div>
         <div class="col-4 form-group">
           <label for="amount">amount</label>
-          <input type="number" id="number" class="form-control">
+          <input type="number"
+                 [(ngModel)]="selectedIngredient.amount"
+                 id="number"
+                 name="amount"
+                 class="form-control">
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <button class="btn btn-success" type="submit">Add</button>
-          <button class="btn btn-danger" type="button">Delete</button>
-          <button class="btn btn-primary" type="button">Clear</button>
+          <button class="btn btn-success"
+                  (click)="save()"
+                  [disabled]="!canSave"
+                  type="submit">Save</button>
+          <button class="btn btn-danger"
+                  (click)="delete()"
+                  [disabled]="!canDelete"
+                  type="button">Delete</button>
+          <button class="btn btn-primary"
+                  (click)="clear()"
+                  type="button">Clear</button>
         </div>
       </div>
     </form>

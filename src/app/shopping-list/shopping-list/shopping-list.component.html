@@ -4,8 +4,8 @@
     <hr/>
     <ul class="list-group">
       <li *ngFor="let ingredient of ingredients$ | async" class="list-group-item">
-        <a>
-          {{ ingredient.name }} ({{ingredient.amount}})
+        <a (click)="selectIngredient(ingredient)">
+          {{ ingredient.name }} ({{ ingredient.amount }})
         </a>
       </li>
     </ul>
