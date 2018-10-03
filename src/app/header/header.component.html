@@ -20,13 +20,24 @@
            routerLink="shopping-list" routerLinkActive="active">Shopping List</a></li>
     </ul>
 
+    <div *ngIf="!useNgx" class="btn-group" appDropDownToggle>
+      <button
+        class="btn btn-primary dropdown-toggle"
+        >Data options!</button>
+      <ul class="dropdown-menu" role="menu" id="data-options-menu">
+        <li role="menuitem"><a class="dropdown-item" href="#">Save</a></li>
+        <li role="menuitem"><a class="dropdown-item" href="#">Fetch</a></li>
+      </ul>
+    </div>
+
     <div class="btn-group"
+         *ngIf="useNgx"
          dropdown>
       <button dropdownToggle
               type="button"
               class="btn btn-primary dropdown-toggle"
               aria-controls="dropdown-basic">
-        Data options <span class="caret"></span>
+        Data options
       </button>
       <ul *dropdownMenu
           class="dropdown-menu"

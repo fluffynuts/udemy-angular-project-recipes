@@ -8,17 +8,21 @@ import { HttpClientModule } from "@angular/common/http";
 import { imports as fakes } from "./conditional-in-memory-api";
 import { CollapseModule, BsDropdownModule } from "ngx-bootstrap";
 import { AppRoutingModule } from "./app-routing/app-routing.module";
+import { DropDownToggleDirective } from "./drop-down-toggle.directive";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    DropDownToggleDirective,
   ],
   imports: [
     ShoppingListModule,
     RecipeBookModule,
     AppRoutingModule,
 
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     CollapseModule.forRoot(),
